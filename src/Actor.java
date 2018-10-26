@@ -4,9 +4,8 @@ public class Actor {
 	String name; 
 	ArrayList<Movie> movies;
 
-		public Actor(String actorName) { 
+		public Actor() { 
 			movies = new ArrayList<>();
-			setActor(actorName);
 		}
 		public void setActor (String actor) { 
 			name = actor;
@@ -14,7 +13,7 @@ public class Actor {
 		public String getActor (){
 			return name;
 		}
-		public void addMovie(Movie movie) { 
+		public void setMovie(Movie movie) { 
 			movies.add(movie);
 		}
 		public ArrayList<Movie> getMovie() { 

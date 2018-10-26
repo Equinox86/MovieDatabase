@@ -5,10 +5,8 @@ public class Movie {
 	double rating; 
 	ArrayList<Actor> actors;
 
-		public Movie(String movieName, double movieRating) { 
+		public Movie() { 
 			actors = new ArrayList<>();
-			setMovie(movieName);
-			rating = setRating(movieRating);
 		}
 		//Movie Setter and Getter
 		public void setMovie (String Movie) { 
