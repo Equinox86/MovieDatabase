@@ -9,8 +9,11 @@ public class Movie {
 			actors = new ArrayList<>();
 		}
 		//Movie Setter and Getter
-		public void setMovie (String Movie) { 
-			name = Movie;
+		public void setMovie (String movieName) { 
+			name = movieName;
+		}
+		public void setActors(String [] actorNames) {
+			
 		}
 		public String getMovie(){
 			return name;
