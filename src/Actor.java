@@ -7,12 +7,14 @@ public class Actor {
 		public Actor() { 
 			movies = new ArrayList<>();
 		}
+		//Actor Setter and Getter
 		public void setActor (String actor) { 
 			name = actor;
 		}
 		public String getActor (){
 			return name;
 		}
+		//Movie Setter and Getter
 		public void setMovie(Movie movie) { 
 			movies.add(movie);
 		}

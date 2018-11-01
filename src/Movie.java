@@ -9,24 +9,24 @@ public class Movie {
 			actors = new ArrayList<>();
 		}
 		//Movie Setter and Getter
-		public void setMovie (String movieName) { 
-			name = movieName;
-		}
-		public void setActors(String [] actorNames) {
-			
+		public void setMovie (String newMovie) { 
+			name = newMovie;
 		}
 		public String getMovie(){
 			return name;
-		}
-		//Actor Setter and Getters
-		public void addMovie(Actor actor) { 
-			actors.add(actor);
+		} 
+		//Actor Setter and Getter
+		public void setActors(Actor newActor) {
+			actors.add(newActor);
 		}
 		public ArrayList<Actor> getActors() { 
 			return actors;
 		}
-		//Rating Setter and Getters
-		public double setRating(double rating) { 
+		//Rating Setter and Getter
+		public void setRating(double newRating) { 
+			rating = newRating;
+		}
+		public double getRating() { 
 			return rating;
 		}
 
