@@ -9,10 +9,10 @@ public class Movie {
 			actors = new ArrayList<>();
 		}
 		//Movie Setter and Getter
-		public void setMovie (String newMovie) { 
+		public void setName (String newMovie) { 
 			name = newMovie;
 		}
-		public String getMovie(){
+		public String getName(){
 			return name;
 		} 
 		//Actor Setter and Getter
@@ -23,8 +23,8 @@ public class Movie {
 			return actors;
 		}
 		//Rating Setter and Getter
-		public void setRating(double newRating) { 
-			rating = newRating;
+		public void setRating(double setRating) { 
+			rating = setRating;
 		}
 		public double getRating() { 
 			return rating;

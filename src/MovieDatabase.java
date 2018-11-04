@@ -15,6 +15,33 @@ public class MovieDatabase{
 	public ArrayList<Actor> getActorList(){
 		return actorList; 
 	}
+	public String getBestActor() { 
+		String bestActor="";
+		double topAvg = 0;
+		double actorAvg;
+			for(Actor a : actorList) { 
+				actorAvg=0;
+				for(Movie m : a.getMovies()) { 
+					actorAvg += m.rating;
+				}
+				actorAvg = actorAvg/a.movies.size();
+				if(actorAvg > topAvg) { 
+					bestActor = a.name;
+				}
+			}
+		return bestActor;
+	}
+	public String getBestMovie() {
+		String bestMovie = "";
+		double topRating=0;
+		for(Movie m : movieList) { 
+			if(m.rating >topRating) {
+				bestMovie = m.name;
+				topRating = m.rating;	
+			}
+		}
+		return bestMovie; 
+	}
 	void addMovie(String name, String[]Actors) {
 		//Temporary Actor and Movie Objects for Buffering
 		Actor tmpActor = new Actor();
@@ -31,7 +58,7 @@ public class MovieDatabase{
 		//Add Movie to MovieDatabase if it is not found
 		if(movieCheck == true) { 
 			//System.out.println(name + " Does Not Exist");
-			tmpMovie.setMovie(name);
+			tmpMovie.setName(name);
 			movieList.add(tmpMovie);
 		}
 		
@@ -52,13 +79,27 @@ public class MovieDatabase{
 			}
 			//Add Actor to Database
 			if(actorCheck == true) {
-				tmpActor.setActor(Actors[x]);
+				tmpActor.setName(Actors[x]);
 				actorList.add(tmpActor);
 			} 
 			tmpMovie.setActors(tmpActor);
-			tmpActor.setMovie(tmpMovie);
+			tmpActor.setMovies(tmpMovie);
 		} 
 		
+	}
+	void addRating(String name, double rating) { 
+		for(Movie m: movieList) { 
+			if(m.name.equals(name)) { 
+				m.rating = m.rating+rating;
+			}
+		}
+	}
+	void updateRating(String name, double newRating) { 
+		for(Movie m: movieList) { 
+			if(m.name.equals(name)) { 
+				m.rating=newRating;
+			}
+		}
 	}
 	public static void main(String args[]) { 
 		//Create new Movie Database and file reading objects
@@ -88,10 +129,10 @@ public class MovieDatabase{
 			Scanner rateScan = new Scanner(rateFile);
 			while(rateScan.hasNextLine()) {
 				rdLine = rateScan.nextLine().split("\t");
-				for(Movie m: md.getMovieList()) { 
-					if(rdLine[0].equals(m.name)) {
-						m.setRating(Double.parseDouble(rdLine[1])); 
-					}
+				if(rdLine[0].equals("movie_name")) {
+					continue;
+				} else { 
+					md.addRating(rdLine[0],Double.parseDouble(rdLine[1]));
 				}
 			}
 			rateScan.close();
@@ -99,7 +140,8 @@ public class MovieDatabase{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		//Functions
-		System.out.println();
+		//Function : Best Actor
+		System.out.println("The Best Actor is: " + md.getBestActor());
+		System.out.println("And the Best Movie is: " + md.getBestMovie());
 	}
 }

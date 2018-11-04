@@ -8,17 +8,17 @@ public class Actor {
 			movies = new ArrayList<>();
 		}
 		//Actor Setter and Getter
-		public void setActor (String actor) { 
+		public void setName (String actor) { 
 			name = actor;
 		}
-		public String getActor (){
+		public String getName (){
 			return name;
 		}
 		//Movie Setter and Getter
-		public void setMovie(Movie movie) { 
+		public void setMovies(Movie movie) { 
 			movies.add(movie);
 		}
-		public ArrayList<Movie> getMovie() { 
+		public ArrayList<Movie> getMovies() { 
 			return movies;
 		}
 
